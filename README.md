@@ -52,8 +52,12 @@
     docker-compose up -d 
 
 4. 其他命令
-    docker-compose stop 关闭项目
-    docker-compose restart 重启
-    docker-compose down 删除项目
-    docker-compose ps  查看项目
+    docker-compose stop 关闭项目   
+    docker-compose restart 重启  
+    docker-compose down 删除项目   
+    docker-compose ps  查看项目   
     docker-compose exec tomcat(注：docker-compose.yml文件里边的servies名，这个项目是tomcat) bash
+
+## 4.docker-compose 参数讲解
+参考这个网址
+https://www.cnblogs.com/freefei/p/5311294.html
