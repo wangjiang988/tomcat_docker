@@ -9,7 +9,23 @@ services:
         - ./tomcat/webapps:/usr/local/tomcat/webapps
         - ./tomcat/logs:/usr/local/tomcat/logs
       ports:
-          - "8081:8080"
+        - "8081:8080"
+      networks:
+        - "netName1"
+    
+    mysql: 
+      build:
+        context: ./mysql
+      environment:
+        - MYSQL_DATABASE=service_platform
+        - MYSQL_USER=mysql
+        - MYSQL_PASSWORD=123456
+        - MYSQL_ROOT_PASSWORD=123456
+      volumes:
+        - ./mysql/data/mysql:/var/lib/mysql
+        - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      ports:
+        - "8090:3306"
       networks:
           - "netName1"
 
