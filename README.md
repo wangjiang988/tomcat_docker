@@ -58,6 +58,13 @@
     docker-compose ps  查看项目   
     docker-compose exec tomcat(注：docker-compose.yml文件里边的servies名，这个项目是tomcat) bash
 
-## 4.docker-compose 参数讲解
+## 4. docker-compose 参数讲解
 参考这个网址
 https://www.cnblogs.com/freefei/p/5311294.html
+
+
+## 5. jdbc连接mysql
+application.yml jdbc
+ url: jdbc:mysql://mysql:3306/service_platform?useUnicode=true&characterEncoding=utf-8&useSSL=true&autoReconnect=true&allowMultiQueries=true
+
+ 127.0.0.1 改为  docker-compose 文件里 tomcat配置的links项 第一个名字
