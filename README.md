@@ -64,7 +64,10 @@ https://www.cnblogs.com/freefei/p/5311294.html
 
 
 ## 5. jdbc连接mysql
-application.yml jdbc
- url: jdbc:mysql://mysql:3306/service_platform?useUnicode=true&characterEncoding=utf-8&useSSL=true&autoReconnect=true&allowMultiQueries=true
+application.yml 
+jdbc 配置
+改为： 
+ 
+    url: jdbc:mysql://mysql:3306/service_platform?useUnicode=true&characterEncoding=utf-8&useSSL=true&autoReconnect=true&allowMultiQueries=true
 
  127.0.0.1 改为  docker-compose 文件里 tomcat配置的links项 第一个名字
