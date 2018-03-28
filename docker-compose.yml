@@ -14,8 +14,8 @@ services:
         - "netName1"
     
     mysql: 
-      build:
-        context: ./mysql
+      image: mysql:5.7
+      restart: always
       environment:
         - MYSQL_DATABASE=service_platform
         - MYSQL_USER=mysql
