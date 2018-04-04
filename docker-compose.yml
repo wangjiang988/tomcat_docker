@@ -15,6 +15,20 @@ services:
       networks:
         - "netName1"
     
+    nginx:
+      build:
+        context: ./nginx
+      volumes:
+        - ./nginx/logs/nginx/:/var/log/nginx
+        - ./nginx/sites/:/etc/nginx/sites-available
+        - ./nginx/www/:/var/www
+      ports:
+        - "81:80"
+        - "444:443"
+      networks:
+        - "netName1"
+
+    
     mysql: 
       image: mysql:5.7
       restart: always
