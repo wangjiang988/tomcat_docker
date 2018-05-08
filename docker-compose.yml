@@ -1,12 +1,20 @@
 version: '2'
 
 services:
+    applications:
+      image: tianon/true
+      volumes:
+        - ./code:/var/www
+        - ./code/tomcat/webapps:/usr/local/tomcat/webapps
+
+
     tomcat: 
       build: 
         context: ./java
         dockerfile: 'Dockerfile'
+      volumes_from:
+        - applications
       volumes:
-        - ./tomcat/webapps:/usr/local/tomcat/webapps
         - ./tomcat/logs:/usr/local/tomcat/logs
       ports:
         - "8081:8080"
@@ -19,8 +27,9 @@ services:
       build: 
         context: ./php
         dockerfile: 'Dockerfile'
+      volumes_from:
+        - applications
       volumes:
-        - ./nginx/www/:/var/www    
         - ./php/php.ini:/usr/local/etc/php/php.ini
       expose:
         - "9000"
@@ -32,10 +41,11 @@ services:
     nginx:
       build:
         context: ./nginx
+      volumes_from:
+        - applications
       volumes:
         - ./nginx/logs/nginx/:/var/log/nginx
         - ./nginx/sites/:/etc/nginx/sites-available
-        - ./nginx/www/:/var/www
       ports:
         - "82:80"
         - "444:443"

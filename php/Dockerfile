@@ -137,7 +137,7 @@ RUN if [ ${INSTALL_SWOOLE} = true ]; then \
 # MongoDB:
 ###########################################################################
 
-ARG INSTALL_MONGO=true
+ARG INSTALL_MONGO=false
 
 RUN if [ ${INSTALL_MONGO} = true ]; then \
     # Install the mongodb extension
@@ -268,7 +268,7 @@ COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 # Mysqli Modifications:
 ###########################################################################
 
-ARG INSTALL_MYSQLI=false
+ARG INSTALL_MYSQLI=true
 
 RUN if [ ${INSTALL_MYSQLI} = true ]; then \
     docker-php-ext-install mysqli \
@@ -380,7 +380,7 @@ RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
 # IMAP:
 ###########################################################################
 
-ARG INSTALL_IMAP=true
+ARG INSTALL_IMAP=false
 
 RUN if [ ${INSTALL_IMAP} = true ]; then \
     apt-get install -y libc-client-dev libkrb5-dev && \
@@ -393,8 +393,8 @@ RUN if [ ${INSTALL_IMAP} = true ]; then \
 # install composer
 ###########################################################################
 
-RUN    curl -sS https://getcomposer.org/installer | php \
-        && mv composer.phar /usr/bin/composer
+#RUN    curl -sS https://getcomposer.org/installer | php \
+#        && mv composer.phar /usr/bin/composer
 
 ###########################################################################
 # Check PHP version:

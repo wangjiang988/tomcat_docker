@@ -18,3 +18,4 @@
 2018/04/12 01:12:00 [emerg] 1#1: no port in upstream "php-upstream" in /etc/nginx/sites-available/default.conf:16
 2018/04/12 01:12:15 [emerg] 1#1: no port in upstream "php-upstream" in /etc/nginx/sites-available/default.conf:16
 2018/04/12 01:21:53 [emerg] 1#1: invalid host in upstream "http://php-upstream" in /etc/nginx/sites-available/default.conf:16
+2018/04/24 11:52:52 [emerg] 1#1: unexpected "}" in /etc/nginx/sites-available/default.conf:16
